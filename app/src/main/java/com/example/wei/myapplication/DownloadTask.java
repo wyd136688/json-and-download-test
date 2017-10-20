@@ -109,6 +109,9 @@ public class DownloadTask extends AsyncTask<String,Integer,Integer> {
                         saveFile.write(b,0,len);
                         //计算已下载的百分比
                         int progress = (int)((total+downloadLength)*100/contentLength);
+                        if (progress > 100) {
+                            progress = 100;
+                        }
                         publishProgress(progress);
 
                     }
